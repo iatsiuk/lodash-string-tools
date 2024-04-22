@@ -4,6 +4,7 @@
   "description": "Converts string using well-known lodash methods",
   "license": "WTFPL",
   "version": "1.0.0",
+  "publisher": "aleksei-iatsiuk",
   "engines": {
     "vscode": "^1.88.0"
   },
