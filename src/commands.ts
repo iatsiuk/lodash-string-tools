@@ -1,6 +1,10 @@
 import { QuickPickItem } from 'vscode';
 
-export const quickPickItems: QuickPickItem[] = [
+interface CustomQuickPickItem extends QuickPickItem {
+  isCompound?: boolean;
+}
+
+export const quickPickItems: CustomQuickPickItem[] = [
   {
     label: 'camelCase',
     description: '"Foo Bar" => "fooBar"',
@@ -48,7 +52,7 @@ export const quickPickItems: QuickPickItem[] = [
   },
   {
     label: 'toUpper',
-    description: '"foo bar" => "FOO BAR"',
+    description: '"fooBar" => "FOOBAR"',
     detail: 'Converts string, as a whole, to upper case',
   },
   {
@@ -73,12 +77,18 @@ export const quickPickItems: QuickPickItem[] = [
   },
   {
     label: 'upperCase',
-    description: '"Foo Bar" => "FOO BAR"',
+    description: '"FooBar" => "FOO BAR"',
     detail: 'Converts string, as space separated words, to upper case',
   },
   {
     label: 'upperFirst',
     description: '"foo bar" => "Foo bar"',
     detail: 'Converts the first character of string to upper case',
+  },
+  {
+    label: 'snakeCaseUpper',
+    description: '"fooBar" => "FOO_BAR"',
+    detail: 'Converts string to snake case, upper case',
+    isCompound: true,
   },
 ];

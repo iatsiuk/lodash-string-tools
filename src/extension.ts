@@ -36,6 +36,8 @@ const lodashLib = {
   unescape,
   upperCase,
   upperFirst,
+  // compound methods
+  snakeCaseUpper: (str: string) => toUpper(snakeCase(str)),
 };
 
 export function activate(context: ExtensionContext) {

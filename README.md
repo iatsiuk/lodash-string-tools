@@ -64,3 +64,9 @@ Using Command Palette (CMD/CTRL + Shift + P):
 <p align="center">
   <img src="https://raw.githubusercontent.com/iatsiuk/lodash-string-tools/master/static/how-to.gif">
 </p>
+
+## Additional methods
+
+In addition to the Lodash string methods, this extension also provides a few non-standard string methods:
+
+- snakeCaseUpper - like snakeCase, but with uppercase letters, e.g. "fooBar" -> "FOO_BAR"
