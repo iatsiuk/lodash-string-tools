@@ -3,7 +3,7 @@
 */**
 
 !dist
-!static
+!icon.png
 !package.json
 !README.md
 !LICENSE.md

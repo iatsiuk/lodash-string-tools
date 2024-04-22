@@ -7,7 +7,7 @@
   "engines": {
     "vscode": "^1.88.0"
   },
-  "icon": "./static/icon.png",
+  "icon": "./icon.png",
   "bugs": {
     "url": "https://github.com/iatsiuk/lodash-string-tools/issues"
   },

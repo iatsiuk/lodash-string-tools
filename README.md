@@ -1,7 +1,7 @@
 # Lodash string methods for Visual Studio Code
 
 <p align="center">
-  <img src="./static/banner.png">
+  <img src="https://raw.githubusercontent.com/iatsiuk/lodash-string-tools/master/static/banner.png">
 </p>
 
 [Lodash](https://lodash.com/) is a JavaScript library which provides utility functions for common programming tasks using the functional programming paradigm. This extension brings the power of its string manipulation functions to Visual Studio Code.
@@ -62,5 +62,5 @@ Using Command Palette (CMD/CTRL + Shift + P):
 2. CMD/CTRL + Shift + P -> Lodash String Tools
 
 <p align="center">
-  <img src="./static/how-to.gif">
+  <img src="https://raw.githubusercontent.com/iatsiuk/lodash-string-tools/master/static/how-to.gif">
 </p>
