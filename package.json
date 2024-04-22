@@ -3,7 +3,7 @@
   "displayName": "Lodash String Tools",
   "description": "Converts string using well-known lodash methods",
   "license": "WTFPL",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "aleksei-iatsiuk",
   "engines": {
     "vscode": "^1.88.0"
