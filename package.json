@@ -1,21 +1,29 @@
 {
   "name": "lodash-string-tools",
-  "displayName": "lodash-string-tools",
-  "description": "",
+  "displayName": "Lodash String Tools",
+  "description": "Converts string using well-known lodash methods",
   "license": "WTFPL",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "engines": {
     "vscode": "^1.88.0"
   },
+  "icon": "./static/icon.png",
+  "bugs": {
+    "url": "https://github.com/iatsiuk/lodash-string-tools/issues"
+  },
   "categories": [
+    "Formatters",
     "Other"
+  ],
+  "keywords": [
+    "lodash"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:iatsiuk/lodash-string-tools.git"
+    "url": "https://github.com/iatsiuk/lodash-string-tools.git"
   },
   "activationEvents": [],
-  "main": "./out/extension.js",
+  "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
@@ -34,7 +42,8 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "pack-extension": "vsce package"
   },
   "devDependencies": {
     "@types/lodash": "^4.17.0",

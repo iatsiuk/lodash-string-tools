@@ -1,10 +1,42 @@
-import lodash from 'lodash';
+// this will allow esbuild to bundle only the necessary lodash methods
+import camelCase from 'lodash/camelCase';
+import capitalize from 'lodash/capitalize';
+import deburr from 'lodash/deburr';
+import escape from 'lodash/escape';
+import kebabCase from 'lodash/kebabCase';
+import lowerCase from 'lodash/lowerCase';
+import lowerFirst from 'lodash/lowerFirst';
+import snakeCase from 'lodash/snakeCase';
+import toLower from 'lodash/toLower';
+import toUpper from 'lodash/toUpper';
+import trim from 'lodash/trim';
+import trimEnd from 'lodash/trimEnd';
+import trimStart from 'lodash/trimStart';
+import unescape from 'lodash/unescape';
+import upperCase from 'lodash/upperCase';
+import upperFirst from 'lodash/upperFirst';
+
 import { ExtensionContext, commands, window } from 'vscode';
 import { quickPickItems } from './commands';
 
-interface LodashLib {
-  [fn: string]: (text: string) => string;
-}
+const lodashLib = {
+  camelCase,
+  capitalize,
+  deburr,
+  escape,
+  kebabCase,
+  lowerCase,
+  lowerFirst,
+  snakeCase,
+  toLower,
+  toUpper,
+  trim,
+  trimEnd,
+  trimStart,
+  unescape,
+  upperCase,
+  upperFirst,
+};
 
 export function activate(context: ExtensionContext) {
   let disposable = commands.registerCommand('lodash-string-tools.commands', async () => {
@@ -18,7 +50,7 @@ export function activate(context: ExtensionContext) {
 
     if (quickPick && editor?.selection && !editor.selection.isEmpty) {
       const text = editor.document.getText(editor.selection);
-      const method = (lodash as unknown as LodashLib)[quickPick.label];
+      const method = lodashLib[quickPick.label as keyof typeof lodashLib];
 
       if (typeof method === 'function') {
         const result = method(text);
