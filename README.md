@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/iatsiuk/lodash-string-tools/master/static/banner.png">
 </p>
 
-[Lodash](https://lodash.com/) is a JavaScript library which provides utility functions for common programming tasks using the functional programming paradigm. This extension brings the power of its string manipulation functions to Visual Studio Code.
+[Lodash](https://lodash.com/) is a JavaScript library that provides utility functions for common programming tasks, utilizing the functional programming paradigm. This extension integrates the powerfull string manipulation methods of Lodash into Visual Studio Code. With a simple hotkey, you can effortlessly convert text into various formats such as camelCase, kebab-case, snake_case, and more.
 
 <p align="center">
   <em>
@@ -64,6 +64,21 @@ Using Command Palette (CMD/CTRL + Shift + P):
 <p align="center">
   <img src="https://raw.githubusercontent.com/iatsiuk/lodash-string-tools/master/static/how-to.gif">
 </p>
+
+## Keybindings
+
+You don't need to use the Command Palette all the time. Just create your own keybindings. Navigate to `Settings -> Keyboard Shortcuts` and add a keybinding for the `lodash-string-tools.commands`. Simply type `Lodash String Tools` into the search bar to find the command.
+
+Example of keybindings.json file:
+
+```json
+{
+  "key": "shift+cmd+l",
+  "command": "lodash-string-tools.commands"
+}
+```
+
+Now you can select the text in the editor and press `Shift + Cmd + L` activate the extension commands menu.
 
 ## Additional methods
 
