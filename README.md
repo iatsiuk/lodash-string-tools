@@ -85,3 +85,4 @@ Now you can select the text in the editor and press `Shift + Cmd + L` activate t
 In addition to the Lodash string methods, this extension also provides a few non-standard string methods:
 
 - snakeCaseUpper - like snakeCase, but with uppercase letters, e.g. "fooBar" -> "FOO_BAR"
+- capitalCamelCase - like camelCase, but with the first letter capitalized, e.g. "foo bar" -> "FooBar"

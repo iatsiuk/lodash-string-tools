@@ -91,4 +91,10 @@ export const quickPickItems: CustomQuickPickItem[] = [
     detail: 'Converts string to snake case, upper case',
     isCompound: true,
   },
+  {
+    label: 'capitalCamelCase',
+    description: '"Foo Bar" => "FooBar"',
+    detail: 'Converts string to camel case, capital first letter',
+    isCompound: true,
+  },
 ];

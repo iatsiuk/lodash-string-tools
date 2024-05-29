@@ -38,6 +38,7 @@ const lodashLib = {
   upperFirst,
   // compound methods
   snakeCaseUpper: (str: string) => toUpper(snakeCase(str)),
+  capitalCamelCase: (str: string) => upperFirst(camelCase(str)),
 };
 
 export function activate(context: ExtensionContext) {
