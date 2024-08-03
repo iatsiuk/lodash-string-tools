@@ -26,6 +26,16 @@
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Lodash String Tools",
+      "properties": {
+        "lodashStringTools.enableSortByUsage": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable sorting of commands by usage frequency"
+        }
+      }
+    },
     "commands": [
       {
         "command": "lodash-string-tools.commands",

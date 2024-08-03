@@ -16,8 +16,9 @@ import unescape from 'lodash/unescape';
 import upperCase from 'lodash/upperCase';
 import upperFirst from 'lodash/upperFirst';
 
-import { ExtensionContext, commands, window } from 'vscode';
+import { ExtensionContext, commands, window, workspace, TextEditor } from 'vscode';
 import { quickPickItems } from './commands';
+import { loadUsageData, incrementUsage, getLanguageUsage } from './usage';
 
 const lodashLib = {
   camelCase,
@@ -41,17 +42,44 @@ const lodashLib = {
   capitalCamelCase: (str: string) => upperFirst(camelCase(str)),
 };
 
+function getEditorLanguage(editor: TextEditor | undefined): string {
+  return editor?.document.languageId || 'unknown';
+}
+
 export function activate(context: ExtensionContext) {
   let disposable = commands.registerCommand('lodash-string-tools.commands', async () => {
+    const config = workspace.getConfiguration('lodashStringTools');
+    const enableSortByUsage = config.get<boolean>('enableSortByUsage', false);
+
+    const editor = window.activeTextEditor;
+    const language = getEditorLanguage(editor);
+
+    if (enableSortByUsage) {
+      const usageData = loadUsageData(context);
+      const languageUsage = getLanguageUsage(usageData, language);
+
+      quickPickItems.sort((a, b) => {
+        const usageA = languageUsage[a.label] || 0;
+        const usageB = languageUsage[b.label] || 0;
+        if (usageA !== usageB) {
+          return usageB - usageA; // Sort by usage count
+        }
+        // If usage count is the same, sort alphabetically
+        return a.label.localeCompare(b.label);
+      });
+    }
+
     const quickPick = await window.showQuickPick(quickPickItems, {
       title: `Select a lodash string method`,
       matchOnDetail: true,
       canPickMany: false,
     });
 
-    const editor = window.activeTextEditor;
-
     if (quickPick && editor?.selection && !editor.selection.isEmpty) {
+      if (enableSortByUsage) {
+        await incrementUsage(context, language, quickPick.label);
+      }
+
       const text = editor.document.getText(editor.selection);
       const method = lodashLib[quickPick.label as keyof typeof lodashLib];
 
