@@ -54,22 +54,22 @@ export function activate(context: ExtensionContext) {
     const editor = window.activeTextEditor;
     const language = getEditorLanguage(editor);
 
+    let itemsToShow = quickPickItems;
     if (enableSortByUsage) {
       const usageData = loadUsageData(context);
       const languageUsage = getLanguageUsage(usageData, language);
 
-      quickPickItems.sort((a, b) => {
+      itemsToShow = [...quickPickItems].sort((a, b) => {
         const usageA = languageUsage[a.label] || 0;
         const usageB = languageUsage[b.label] || 0;
         if (usageA !== usageB) {
-          return usageB - usageA; // Sort by usage count
+          return usageB - usageA;
         }
-        // If usage count is the same, sort alphabetically
         return a.label.localeCompare(b.label);
       });
     }
 
-    const quickPick = await window.showQuickPick(quickPickItems, {
+    const quickPick = await window.showQuickPick(itemsToShow, {
       title: `Select a lodash string method`,
       matchOnDetail: true,
       canPickMany: false,

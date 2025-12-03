@@ -6,7 +6,7 @@ export interface UsageData {
   };
 }
 
-const USAGE_KEY = Symbol('lodash-string-tools:UsageData').toString();
+const USAGE_KEY = 'lodash-string-tools:UsageData';
 
 export function loadUsageData(context: ExtensionContext): UsageData {
   return context.globalState.get<UsageData>(USAGE_KEY, {});
