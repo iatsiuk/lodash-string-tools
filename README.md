@@ -4,7 +4,7 @@
   <img src="https://raw.githubusercontent.com/iatsiuk/lodash-string-tools/master/static/banner.png">
 </p>
 
-[Lodash](https://lodash.com/) is a JavaScript library that provides utility functions for common programming tasks, utilizing the functional programming paradigm. This extension integrates the powerfull string manipulation methods of Lodash into Visual Studio Code. With a simple hotkey, you can effortlessly convert text into various formats such as camelCase, kebab-case, snake_case, and more.
+[Lodash](https://lodash.com/) is a JavaScript library that provides utility functions for common programming tasks, utilizing the functional programming paradigm. This extension integrates the powerful string manipulation methods of Lodash into Visual Studio Code. With a simple hotkey, you can effortlessly convert text into various formats such as camelCase, kebab-case, snake_case, and more.
 
 <p align="center">
   <em>
@@ -78,7 +78,13 @@ Example of keybindings.json file:
 }
 ```
 
-Now you can select the text in the editor and press `Shift + Cmd + L` activate the extension commands menu.
+Now you can select the text in the editor and press `Shift + Cmd + L` to activate the extension commands menu.
+
+## Settings
+
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `lodashStringTools.enableSortByUsage` | `false` | Sort commands by usage frequency |
 
 ## Additional methods
 
